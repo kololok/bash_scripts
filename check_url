@@ -1,0 +1,20 @@
+#!/bin/bash
+
+file="urls.txt"
+for var in $(cat $file)
+do
+var1=$var
+echo " $var"
+
+function myfunc {
+value=$(curl --write-out '%{http_code}' --silent --output /dev/null $var)
+}
+myfunc
+if [ $value -eq 200 ]
+then
+echo "Живой $value"
+else
+break
+fi
+
+done
