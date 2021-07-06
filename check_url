@@ -10,7 +10,7 @@ function myfunc {
 value=$(curl --write-out '%{http_code}' --silent --output /dev/null $var)
 }
 myfunc
-if [ $value -eq 200 ]
+if [ $value -lt 399 ]
 then
 echo "Живой $value"
 else

@@ -2,8 +2,5 @@
 
 file=$1
 
-echo $(cat $file | cut -d' ' -f1 | logtop | head -n2 )
+echo $(cat $file | cut -d' ' -f1 | uniq -c | sort -r | head -n 1)
 
-
-
-done
